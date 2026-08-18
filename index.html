@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>图库</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">图库 <span class="brand-count" id="total"></span></div>
+  <div class="controls">
+    <label class="ctl">
+      <span>排序</span>
+      <select id="mode">
+        <option value="desc">倒序</option>
+        <option value="asc">正序</option>
+        <option value="random">随机</option>
+      </select>
+    </label>
+    <label class="ctl">
+      <span>作者</span>
+      <select id="cat"></select>
+    </label>
+    <label class="ctl">
+      <span>类型</span>
+      <select id="type">
+        <option value="">全部</option>
+        <option value="i">图片</option>
+        <option value="v">视频</option>
+      </select>
+    </label>
+    <div class="ctl ctl-size">
+      <span>大小</span>
+      <div class="size-btns" id="sizes">
+        <button data-size="s" title="小图">小</button>
+        <button data-size="m" class="active" title="中图">中</button>
+        <button data-size="l" title="大图">大</button>
+        <button data-size="xl" title="特大图">特大</button>
+        <button data-size="xxl" title="超大图">超大</button>
+      </div>
+    </div>
+    <button id="shuffle" class="shuffle-btn" hidden>重新洗牌</button>
+  </div>
+</header>
+
+<main id="grid" class="size-m"></main>
+<div id="sentinel"></div>
+
+<div class="statusbar" id="status"></div>
+
+<div id="lightbox" hidden>
+  <div class="lb-bar">
+    <span class="lb-info" id="lb-info"></span>
+    <div class="lb-actions">
+      <a id="lb-open" href="#" target="_blank" rel="noopener">新窗口打开</a>
+      <a id="lb-download" href="#" target="_blank" rel="noopener" download>下载</a>
+      <button id="lb-close" aria-label="关闭">✕</button>
+    </div>
+  </div>
+  <div class="lb-stage" id="lb-stage"></div>
+  <button class="lb-nav lb-prev" aria-label="上一张">‹</button>
+  <button class="lb-nav lb-next" aria-label="下一张">›</button>
+</div>
+
+<script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
